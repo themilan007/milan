@@ -16,10 +16,11 @@ if (i == 8) Console.WriteLine(i * 8);
 if (i == 9) Console.WriteLine(i * 9);
 if (i == 10) Console.WriteLine(i * 10);
 i++;
-*/
+
 
 
 for (int k = 1; k < 10; k++)
 {
     Console.WriteLine(k+ "X 1"+ k );
 }
+*/
