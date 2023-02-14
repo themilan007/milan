@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\3dstu\\.nuget\\packages\\": {}
+    "C:\\Users\\Milan.DESKTOP-CMQL657\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\3dstu\\Desktop\\Projektek\\milan\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "C:\\Usr\\Milan\\milan\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
-      "projectPath": "C:\\Users\\3dstu\\Desktop\\Projektek\\milan\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
-      "packagesPath": "C:\\Users\\3dstu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\3dstu\\Desktop\\Projektek\\milan\\ConsoleApp1\\ConsoleApp1\\obj\\",
+      "projectPath": "C:\\Usr\\Milan\\milan\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+      "packagesPath": "C:\\Users\\Milan.DESKTOP-CMQL657\\.nuget\\packages\\",
+      "outputPath": "C:\\Usr\\Milan\\milan\\ConsoleApp1\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\3dstu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Milan.DESKTOP-CMQL657\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

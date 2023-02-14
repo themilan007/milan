@@ -1,0 +1,31 @@
+ciklusok, 
+
+
+elágazások (nagyobb csoport)
+if, if-else, if-else if-else
+
+?: operátor - feltételes operátor
+
+
+metódusokat nagy betüvel, a változókat kis betüvel kezdjük, ez szokás
+-----------------------------
+Unity HUb - installs, Projekctf fontos
+Install Editor-ban választhatsz verziót - LEGÚJABB LTS-t javasolt hazsnálni, 
+21.3 nagyjából jó
+
+New Project - Template-t is lehetne, de mi nulláról megyünk
+SRP-URP: ne azzal kezdjünk. Majd lehet rá frissíteni
+
+-------------------------------
+
+x (piros)
+y (zöld)
+z (kék)
+
+(blenderben a z a függőleges tengely)
+
+
+Perspektív (szemünk) és ortografikus kamera (téglatest)
+Jobbra Alulra dokkoltuk a Game nézetet
+
+Scene-n F gomb rákoncentrál az objektumra

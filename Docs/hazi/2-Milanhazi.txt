@@ -1,0 +1,106 @@
+float clamp(float a, float b, float c)
+{
+    if ( a <= b)
+    {
+        return b;
+    } 
+    else if (a >= c)
+    {
+        return c;
+    }
+    else
+    {
+        return a;
+    } 
+}
+/*
+float ceiling( float cc)
+{
+    float ww = cc % 1;
+    float kk = cc - ww;
+    kk = kk++;
+}
+*/
+float ceiling(float xd)
+{
+    float we = xd % 1;
+    float kh = xd - we;
+    if (xd == 0)
+    {
+
+        return xd;
+    }
+    else 
+    {
+
+        return kh++;
+    }
+
+}
+
+float round(float cd)
+{
+    float sb = cd % 1;
+    float ddr = cd - sb;
+    if (sb >= 0.5)
+    {
+
+        return ddr++;
+        
+
+    }
+
+    else
+    {
+
+        return ddr;
+
+    }
+
+}
+bool prim(int ffs)
+{
+    for (int fks=2;fks<ffs;fks++)
+    {
+        if (ffs % fks == 0) ;
+        return false;
+
+
+    }
+    return true;
+}
+
+
+int fv(int rdd, int cod)
+{
+    int uganda = Math.Max(rdd, cod);
+    int uganda2 = Math.Min(rdd, cod);
+    int ww2 = uganda2 / 2;
+    for (int zw = ww2;zw> 1; zw--)
+    {
+        if (rdd % zw == 0 && cod % zw == 0)
+        {
+            return zw;
+
+        }
+    }
+
+    return 1;
+}
+
+
+int fpp(int rddd, int codd,int bdd)
+{
+    int uganda3 = Math.Max(rddd, codd);
+    int nuk = Math.Max(uganda3, bdd);
+    int uganda4 = Math.Min(rddd, codd);
+    int sugar = Math.Min(uganda4, bdd);
+    int tarzan = rddd + codd + bdd - nuk - sugar;
+    int szam = nuk * nuk;
+    int szam2 = sugar * sugar + tarzan * tarzan;
+    if (szam2 == szam)
+    {
+        return 1;
+    }
+    return 0;
+}
