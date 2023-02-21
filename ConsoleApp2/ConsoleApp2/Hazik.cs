@@ -169,7 +169,7 @@ int fpp(int rddd, int codd, int bdd)
     }
     return 0;
 }
-*/
+
 
 
 // 3. óra - házik
@@ -222,7 +222,7 @@ bool IsPrime(int g)
 
 
 //3
-/*
+*/
 using UnityEngine;
 public class Move : MonoBehavior
 {
@@ -230,7 +230,7 @@ public class Move : MonoBehavior
     void Update()
     {
         vector3 inputvector1 = new Vector3(Input.GetAxis("horizontal"), 0, Input.GetAxel("vertical"));
-        float x1 = Input.GetKeyDown(keycode.leftArrow) ? -1 : 0;
+        float x1 = Input.GetKeyDown(Keycode.leftArrow) ? -1 : 0;
         float x2 = Input.GetKeyDown(keycode.rightArrow) ? 1 : 0;
         float z1 = Input.GetKeyDown(keycode.downArrow) ? -1 : 0;
         float z2 = Input.GetKeyDown(keycode.upArrow) ? 1 : 0;
@@ -239,7 +239,8 @@ public class Move : MonoBehavior
         transform.Translate(inputvector1 * (Time.DeltaTime * speed));
     }
 }
-*/
+
+// 4. óra - házik------------------------------------------------
 
 
 

@@ -1,0 +1,23 @@
+/* Vector3 auler = new Vector3(0, angrot, 0);
+        auler *= Time.deltaTime;
+       
+        transform.Rotate(axes, angrot * Time.deltaTime ,rotspace);
+           void OnDrawGizmos()
+        {
+            Vector3 center = transform.position;
+
+            Vector3 dir;
+            if (rotspace== Space.World)
+            {
+                dir = Axis.normalized;
+                else
+                {
+                    dir = transform.transformDirection(axis).normalize;
+                }
+            }
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine;
+
+        }
+    }
+       */
