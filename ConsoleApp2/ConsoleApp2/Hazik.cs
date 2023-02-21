@@ -176,6 +176,70 @@ int fpp(int rddd, int codd, int bdd)
 
 
 
+zoro(25456);
+int zoro(int ho)
+{
+    int alma = 0;
+    while (ho != 0)
+    {
+        int w = ho % 10;
+        alma += w;
+        ho /= 10;
+    }
+    return alma;
+}
+
+WriteFirstPrime(15);
+//2
+void WriteFirstPrime(int noob)
+{
+    int numberf = 0;
+    for (int i = 1; numberf < noob; i++)
+    {
+        if (IsPrime(i))
+        {
+            Console.WriteLine(i);
+            numberf++;
+        }
+    }
+}
+
+
+
+
+bool IsPrime(int g)
+{
+    if (g < 2)
+        return false;
+    float q = (float)Math.Sqrt(g);
+    for (int i2 = 2; i2 <= q; i2++)
+    {
+        if (g % i2 == 0)
+            return false;
+    }
+    return true;
+}
+
+
+//3
+/*
+using UnityEngine;
+public class Move : MonoBehavior
+{
+    [SerializeField] float speed = 1;
+    void Update()
+    {
+        vector3 inputvector1 = new Vector3(Input.GetAxis("horizontal"), 0, Input.GetAxel("vertical"));
+        float x1 = Input.GetKeyDown(keycode.leftArrow) ? -1 : 0;
+        float x2 = Input.GetKeyDown(keycode.rightArrow) ? 1 : 0;
+        float z1 = Input.GetKeyDown(keycode.downArrow) ? -1 : 0;
+        float z2 = Input.GetKeyDown(keycode.upArrow) ? 1 : 0;
+        Vector3 inputvector2 = new Vector3(x1 + x2, 0, z1 + z2);
+        inputvector1 = inputvector1.normalized;
+        transform.Translate(inputvector1 * (Time.DeltaTime * speed));
+    }
+}
+*/
 
 
 
