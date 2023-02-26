@@ -222,8 +222,9 @@ bool IsPrime(int g)
 
 
 //3
-*/
-using UnityEngine;
+
+// SULI
+
 public class Move : MonoBehavior
 {
     [SerializeField] float speed = 1;
@@ -241,8 +242,8 @@ public class Move : MonoBehavior
 }
 
 // 4. óra - házik------------------------------------------------
-
-
+// nem volt
+*/
 
 
 
