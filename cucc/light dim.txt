@@ -1,0 +1,20 @@
+using UnityEngine;
+
+class LightDimmer : MonoBehaviour
+{
+    [SerializeField] Light light;
+    [SerializeField] Color c1 = Color.white;
+    [SerializeField] Color c2 = Color.white;
+
+    [SerializeField, Range(0,1) ] float dim = 0;
+
+    void OnValidate()
+    {
+        Update();
+    }
+
+    void Update()
+    {
+        light.color = Color.Lerp(c1, c2, dim);
+    }
+}

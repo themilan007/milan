@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class collertor : MonoBehaviour
+{
+    int collected = 1;
+
+    public void OnTriggerEnter(Collider other)
+    {
+        coinCount c = other.GetComponent<coinCount>();
+
+        if (c != null)
+        {
+            collected += c.GetValue();
+            Debug.Log(collected);
+            c.Teleport();
+        }
+    }
+}
