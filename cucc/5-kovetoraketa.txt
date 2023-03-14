@@ -1,0 +1,24 @@
+using UnityEngine;
+
+public class Rocket : MonoBehaviour
+{
+	[SerializeField] Transform target;
+	[SerializeField] float speed = 5;
+	[SerializeField] float angularSpeed = 180;
+	
+	void Update()
+	{
+		Transform self = transform;
+		
+		Vector3 targetDirection = target.position - self.position;  // Ebben az irányban van a cél
+		Quaternion targetRotation = Quaternion.LookRotation(targetDirection);   // Ahhoz ebbe az irányba akarunk fordulni
+		
+		// Fordulás:
+		float maxAngle = angularSpeed * Time.deltaTime;  // Maximum ekkora szögben fordulhatunk most
+		self.rotation = Quaternion.RotateTowards(self.rotation, targetRotation, maxAngle);  // Towards metódus
+		
+		// Haladás:
+		float offset = speed * Time.deltaTime;   // Ennyit lépünk elõre
+		self.position += self.forward * offset;  // Elõre irányba megyünk
+	}
+}
