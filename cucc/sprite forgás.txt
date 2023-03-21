@@ -1,0 +1,67 @@
+using UnityEngine;
+
+class Spaceship : MonoBehaviour
+{
+    [SerializeField] float acceleration = 1;
+    [SerializeField] float angularSpeed = 360;
+
+    Vector2 velocity;
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.UpArrow)) 
+        {
+            velocity += (Vector2)transform.up * (acceleration * Time.deltaTime);
+        }
+
+        transform.position += (Vector3)(velocity * Time.deltaTime);
+
+        float rotate = Input.GetAxis("Horizontal");
+
+        transform.Rotate(new Vector3(0, 0, rotate * angularSpeed * Time.deltaTime));
+    }
+
+}
+
+using UnityEngine;
+
+class Spaceship : MonoBehaviour
+{
+    [SerializeField] float acceleration = 1;
+    [SerializeField] float angularSpeed = 360;
+    [SerializeField] float drag = 1;
+    [SerializeField] float maxSpeed = 5;
+
+    Vector2 velocity;
+
+    void FixedUpdate()
+    {
+        // Gyorsítás
+        if (Input.GetKey(KeyCode.UpArrow)) 
+        {
+            velocity += (Vector2)transform.up * (acceleration * Time.fixedDeltaTime);
+
+            if (velocity.magnitude > maxSpeed) 
+            {
+                // A
+                velocity.Normalize();
+                velocity *= maxSpeed;
+
+                // B
+                // velocity = velocity.normalized * maxSpeed;
+            }
+        }
+
+        // Lassítás (Közegellenállás)
+        velocity -= velocity * (drag * Time.fixedDeltaTime);
+
+        // Mozgás
+        transform.position += (Vector3)(velocity * Time.fixedDeltaTime);
+
+        //Forgás
+        float rotate = Input.GetAxis("Horizontal");
+        transform.Rotate(new Vector3(0, 0, -rotate * angularSpeed * Time.fixedDeltaTime));
+    }
+
+}
+
