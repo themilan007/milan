@@ -1,0 +1,28 @@
+//Írj függvényt, ami egy paraméterben kapott 2-es számrendszer béli (bináris) számot átalakít 10-es
+//számrendszer béli (decimális) alakjára.
+// Ha a bemenet nem bináris szám (más számjegyet is tartalmaz mint 0 és 1), a kimenet legyen 0.
+
+
+int BinaryToDecimal(int binaryNum)
+{
+    int decimalNum = 0;    // Kinullázom a végeredményt 
+    int digitValue = 1;    // Ebben számolom, hogy az egyes helyiértéken mennyivel szorzunk
+
+    while (binaryNum > 0)  // Egyenként végigmegyek a bináris szám minden számjegyén
+    {
+        int digit = binaryNum % 10;    // Levágjuk az utolsó számjegyet
+
+        if (digit > 1)         // Ha bármelyik számjegy nem 0 vagy 1
+        {
+            decimalNum = 0;    // akkor az eredmény 0
+            break;             // ás kilépünk a ciklusból
+        }
+
+        decimalNum += digit * digitValue;
+
+        binaryNum = binaryNum / 10;   // Törlöm az utolsó számjegyet (Azt már kezeltem)
+        digitValue *= 2;              // Következõ helyiérték már dupla akkora szorzójú
+    }
+
+    return decimalNum;
+}

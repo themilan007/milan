@@ -1,0 +1,11 @@
+// Írj metódust, ami kiszámolja egy paraméterben kapott `float` tömb elemeinek átlagát és visszatér az eredménnyel!
+
+float Mean(float[] array)
+{
+	float sum = 0;
+	for (int i = 0; i < array.Length; i++)
+	{
+		sum += array[i];
+	}
+	return sum / array.Length;
+}

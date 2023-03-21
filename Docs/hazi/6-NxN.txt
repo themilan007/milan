@@ -1,0 +1,31 @@
+// Írj metódust, ami kiírja az elsõ “n” olyan számot, amiben a számjegyek összege “n”!
+// “n”-t paraméterben kapja meg a függvény.
+
+// Ha egy probléma túl összetett, bontsd fel részfeleadatokra: Használj nyugodtan egy segéd metódust! 
+
+void WriteNumbersWithSumOfDigits(int n)
+{
+	int numbersFound = 0;      // Hány elemet találtunk eddig
+	for (int i = 1; numbersFound < n; i++) // Végignézzük az összes számot
+	{                                      // addig, amíg nem találok eleget.
+		if (SumOfDigits(i) == n) // Ha a számjegyek összege megegyezik a számmal,
+		{
+			Console.WriteLine(i);  // kiírjuk a számot a feladat szerint és
+			numbersFound++;        // jegyzem, hogy eggyel több megvan
+                             // (Ha ezt kihagyjuk, végtelen ciklust kapunk)
+		}
+	}
+}
+
+// Segédfüggvény
+int SumOfDigits(int n)    // A számjegyek összege
+{
+	int sum = 0;            // Az összeg nulláról indul
+	while (n != 0)          // Addig megyek el, amig a számom nem nulla
+	{
+		int digit = n % 10;   // Veszem az utoló számjegyet
+		sum += digit;         // Növelem az összeget a számjegy értékével
+		n /= 10;              // Levágom az utolsó számjegyet
+	}
+	return sum;
+}
