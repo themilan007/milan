@@ -1,0 +1,43 @@
+﻿// Írj metódust, ami rajzol egy Gizmo kört 2D síkban!
+// A Gizmos osztály nem tartalmaz kör rajzoló metódust viszont tartalmaz egyenes rajzolót. 😉
+// A függvény paraméterben kapja meg a középpontját és a kör sugarát.
+
+// Help, kell a színusz, koszinusz függvény és a kör kapcsolatának megértése
+
+using UnityEngine;
+
+public class CircleDrawer : MonoBehaviour
+{
+    // Teszteléshez:
+    [SerializeField] Vector3 center;
+    [SerializeField] float radius;
+
+    void OnDrawGizmos()
+    { 
+        DrawCircle(transform.position, radius);
+    }
+
+    // A lényegi megoldás:
+    void DrawCircle(Vector3 center, float radius)
+    {
+        float angle = 0;
+        Vector3 prev = GetCirclePoint(center, radius, angle);
+        
+        int steps = 30; // Hány kis egyenesből rajzolom ki a kört
+        for (int i = 1; i <= steps; i++)
+        {
+            angle += 2 * Mathf.PI / steps; // Növelem a szöget
+            Vector3 cur = GetCirclePoint(center, radius, angle);
+            Gizmos.DrawLine(prev, cur);
+            prev = cur;
+        }
+    }
+    
+    // Segédmetódus a kör egy pontjának kiszámolására
+    Vector3 GetCirclePoint(Vector3 center, float radius, float angle)
+    {
+        float x = Mathf.Cos(angle);
+        float y = Mathf.Sin(angle);
+        return center + new Vector3(x, y, 0) * radius;
+    }
+}

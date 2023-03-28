@@ -1,0 +1,70 @@
+// Írj komponenst, a Flappy Bird mintájára.
+
+// Ha a játékos megnyomja az ugrás gombot, az objektum ugrik egyet és elkezd esni.
+// Újabb gombnyomásra újabb lökést kap az objektum függõleges irányban.
+// Ha az objektum elér egy maximum vagy minimum magasságot, akkor kiírja, hogy
+// GAME OVER és vissza teszi az objektumot a két határérték közé.
+// Ha megnyomja a felhasználó az ugrás gombot, újra kezdõdik a játék.
+// Gravitáció szimulációt kell írni, rigidbody nélkül
+
+using UnityEngine;
+
+public class Flappy : MonoBehaviour
+{
+    [SerializeField] float top;
+    [SerializeField] float bottom;
+    [SerializeField] float jumpVelocityVertical;
+    [SerializeField] float acceleration;
+
+    bool isPlaying = false;     // Játék folyamatban van-e?
+    float velocity;             // Sebességvektor
+
+    void Start()
+    {
+        Reset(); // Kezdeti állapot beállítása
+    }
+
+    // A gyorsulást és lassulást érdemes a FixedUpdate-ben kezelni:
+    void FixedUpdate()
+    { 
+				// gravitációs gyorsulás
+        if(isPlaying)
+            velocity -= acceleration * Time.fixedDeltaTime; 
+    }
+
+    void Update()
+    {
+        // Input kezelés
+        if (Input.anyKeyDown)
+        {
+            isPlaying = true;
+            velocity += jumpVelocityVertical;
+        }
+
+        // Mozgás (érdemes azUpdate-ben kezelni)
+        if (isPlaying)  // Ha megy a játék
+        {
+            transform.position += new Vector3(0, velocity * Time.deltaTime, 0);
+            
+            // Game over
+            float y = transform.position.y;
+            if (y <= bottom || y >= top)
+            {
+                Debug.Log("Game Over");
+                Reset();
+            }
+        }
+    }
+
+    void Reset() // Kezdeti állapot beállítása
+    {
+        isPlaying = false; // Megállás
+        velocity = 0; // Sebesség nullázása
+        
+        // Középre helyezés:
+        Vector3 pos = transform.position;
+        pos.y = (top + bottom) / 2;
+        transform.position = pos;
+    }
+
+}

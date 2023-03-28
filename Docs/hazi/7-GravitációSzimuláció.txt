@@ -1,0 +1,43 @@
+// Írj komponenst, lefelé gyorsít egy objektumot [SerializeField] változóban beállított gyorsulás szerint.
+// A beállított gyorsulás azt adja meg, mennyi tud változni a sebesség másodpercenként.
+// Ha a GameObject eléri a 0 magasságot, megáll.
+
+
+// A beállított gyorsulás azt adja meg, mennyi tud változni a sebesség másodpercenként. Ne használj RigidBody-t
+
+using UnityEngine;
+
+public class GravityApplier : MonoBehaviour
+{ 
+    [SerializeField] float acceleration; // Gyorsulás
+    
+    float currentSpeed = 0;              // Jelenlegi sebesség
+
+    // A gyorsulást érdemes a FixedUpdate-ben kezelni
+    void FixedUpdate()
+    {
+        // Gyorsulás (Sebesség módosítása):
+        currentSpeed += acceleration * Time.fixedDeltaTime;
+    }
+    
+    // Az elmozdulást érdemes az Update-ben kezelni
+    void Update()
+    {
+        Vector3 position = transform.position;  // Jelenlegi pozíció
+        float currentY = position.y;            // Jelenlegi pozíció Y értéke
+
+        // Mozgás:
+        float move = currentSpeed * Time.deltaTime;
+        if(currentY > 0) // Ha elér a célhoz
+        {
+            position.y = 0;
+            transform.position = position;
+            currentSpeed = 0;
+        }
+        else // Ha nam ér el a célhoz
+        {
+            position.y -= move;
+            transform.position = position;
+        }
+    }
+}

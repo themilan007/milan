@@ -1,0 +1,17 @@
+﻿// Írj függvényt, ami egy string-ben megszámolja az összes különböző betűt! 
+// Pl. : Abrakadabra → 5 (A, B, R, K, D),, Karaktertömb → 8 (K, A, R, T, E, Ö, M, B)
+
+int CountUniqCharacters(string s)
+{
+	// Egyedi karaktereket tertalmazó tömb
+	List<char> characters = new List<char>();
+	foreach (char c in s) // minden karaktert megnézünk
+	{
+		if(!characters.Contains(c))
+		characters.Add(c);
+	}
+	
+	return characters.Count;
+}
+
+
