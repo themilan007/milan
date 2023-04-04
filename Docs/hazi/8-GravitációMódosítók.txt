@@ -1,0 +1,87 @@
+/*
+Írj komponenst, ami saját maga körül egy beállítható sugarú gömbben módosítja a gravitációt.
+A gravitáció módosításának mértéke egy float számként állítható be
+A módosítás mértéke a gömb közepén a legerõsebb, a széle felé tartva csökken
+*/
+
+//-------------------------------------------------------------
+// A Megoldás (kikommentezve)
+
+/*
+using UnityEngine;
+
+class GravityModifier : MonoBehaviour
+{
+	[SerializeField] Vector3 gravity = new(0, 10, 0);
+	[SerializeField] float range = 1.0f;
+
+  void FixedUpdate()
+  {
+		Rigidbody[] rigidbodies = FindObjectsOfType<Rigidbody>();
+		foreach (Rigidbody rb in rigidbodies)
+		{
+			float distance = Vector3.Distance(transform.position, rb.position);
+			if (distance < range)
+				rb.AddForce(gravity, ForceMode.Acceleration);
+		}
+	}
+}
+*/
+
+//-------------------------------------------------------------
+// B megoldás - jobb verzó
+
+// Listával és triggerekkel
+
+using System.Collections.Generic;
+using UnityEngine;
+
+class GravityModifier : MonoBehaviour
+{
+    [SerializeField] Vector3 gravity = new(0, 10, 0);
+    [SerializeField] float range = 1.0f; 
+
+    List<Rigidbody> _rigidbodies = new List<Rigidbody>();
+
+    void OnTriggerEnter(Collider other)
+    {
+        Rigidbody rb = other.attachedRigidbody;
+        if (rb != null)            
+            _rigidbodies.Add(rb);
+    }
+    
+    void OnTriggerExit(Collider other)
+    {
+        Rigidbody rb = other.attachedRigidbody;
+        if (rb != null)
+            _rigidbodies.Remove(rb);
+    }
+
+// Listával és triggerekkel
+
+using System.Collections.Generic;
+using UnityEngine;
+
+class GravityModifier : MonoBehaviour
+{
+    [SerializeField] Vector3 gravity = new(0, 10, 0);
+    [SerializeField] float range = 1.0f; 
+
+    List<Rigidbody> _rigidbodies = new List<Rigidbody>();
+
+    void OnTriggerEnter(Collider other)
+    {
+        Rigidbody rb = other.attachedRigidbody;
+        if (rb != null)            
+            _rigidbodies.Add(rb);
+    }
+    
+    void OnTriggerExit(Collider other)
+    {
+        Rigidbody rb = other.attachedRigidbody;
+        if (rb != null)
+            _rigidbodies.Remove(rb);
+    }
+
+
+

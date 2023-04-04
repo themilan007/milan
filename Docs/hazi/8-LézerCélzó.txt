@@ -1,0 +1,46 @@
+/*
+Írj komponenst, ami egy sugarat lõ (Raycasting) saját pozíciójából lokális elõre irányába!
+A komponensnek[SerializeField] beállításként megadható GameObject-ek egy tömbje.
+Ha a sugárvetés célt talált, akkor tömb elemeit felsorakoztatja a célzás és találat pontjai
+közé egyenlõ távolságra. Ha a sugárvetés nem talált célt, a tömb elemeit inaktiválja!
+Lehessen a komponensnek beállítani maximális távolságot! Gizmóval rajzold ki.
+*/
+
+
+using UnityEngine;
+
+public class Pointer : MonoBehaviour
+{ 
+    [SerializeField] float rayLength = 100f;
+    [SerializeField] GameObject[] objects;
+
+    void Update()
+    {
+        Vector3 position = transform.position; // Pozíció
+        Ray ray = new Ray(position, transform.forward); // Elõre mutató sugár
+
+        bool isHit = Physics.Raycast(ray, out RaycastHit hit, rayLength); // Sugárvetés = raycast
+
+        foreach (GameObject o in objects)   // Végigmegyek az összes objektumon
+            o.SetActive(isHit);             // Ki vgy be kapcsolom az objektumokat
+                                            // függõen attól, hogy történt e találat
+
+        if (isHit) // Ha van találat
+        {
+            for (int index = 0; index < objects.Length; index++) // Az összese elemre:
+            {
+                float rate = index / (objects.Length - 1f); // 0-1 közötti érték
+                Vector3 p = Vector3.Lerp(position, hit.point, rate); // Lineáris interpoláció
+                objects[index].transform.position = p; // Pozíció beállítása
+            }
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Vector3 position = transform.position;                                  // Pozíció
+        Ray ray = new Ray(position, transform.forward );            // Elõre mutató sugár 
+        Gizmos.color = Color.red;                                               // Gizmos színe
+        Gizmos.DrawLine(ray.origin, ray.origin + (ray.direction * rayLength));  // Sugár kirajzolása 
+    }
+}
