@@ -1,0 +1,41 @@
+// Készíts bombát, ami egy idõ letelte után ellöki a körülötte lévõ RigidBody-kat és megsemmisíti önmagát.
+// A robbanásnak van egy beállítható ereje és hatótávolsága.
+// A hatótáv széléhez közeledve gyengül a lökés ereje.
+
+using UnityEngine;
+
+public class Bomb : MonoBehaviour
+{
+    [SerializeField] float delay = 5f;
+    [SerializeField] float force = 25f;
+    [SerializeField] float range = 5f;
+    [SerializeField] float up = 0.5f;
+    
+    float _startTime;
+
+    void Start()
+    {
+        _startTime = Time.time;
+    }
+
+    void Update()
+    {
+        if (Time.time - _startTime > delay)
+        {
+            Explode();
+            Destroy(gameObject);
+        }
+    }
+
+    void Explode()
+    {
+        Rigidbody[] rigidbodies = FindObjectsOfType<Rigidbody>();
+        foreach (Rigidbody rb in rigidbodies)
+						rb.AddExplosionForce(
+								force,
+								transform.position,
+								range,
+								up,
+								ForceMode.Impulse); 
+	  }
+}
