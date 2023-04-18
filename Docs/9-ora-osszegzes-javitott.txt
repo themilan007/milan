@@ -1,28 +1,28 @@
-Ôªø
+
 
 /*
 
-// IOS Builder for Windows (asset) - IOS j√°t√©k MAC n√©lk√ºl
+// IOS Builder for Windows (asset) - IOS j·tÈk MAC nÈlk¸l
 // ----------------------------------------------------------------------------
 
-//-------------------------------------H√ÅZI-----------------------------------
+//-------------------------------------H¡ZI-----------------------------------
 //------------------------------ LASER POINTER ------------------------------
 
 using UnityEngine;
 
 public class LaserPointer : MonoBehaviour
 {
-    [SerializeField] Transform[] points;            // lehetne t√∂mb is, vagy lista, √≠gy nem kell gameobect.transform.position,
-                                                    // hanem el√©g lesz a transform.position
+    [SerializeField] Transform[] points;            // lehetne tˆmb is, vagy lista, Ìgy nem kell gameobect.transform.position,
+                                                    // hanem elÈg lesz a transform.position
 
     void Update()
     {
         Vector3 origin = transform.position;
         Vector3 direction = transform.up;
 
-        Ray ray = new Ray(origin, direction);           // √≠gy is lehet
+        Ray ray = new Ray(origin, direction);           // Ìgy is lehet
 
-        //Ray ray = new Ray();                          // vagy √≠gy √©s ut√≥lag t√∂ltj√ºk fel a k√∂v 2 sorral
+        //Ray ray = new Ray();                          // vagy Ìgy Ès utÛlag tˆltj¸k fel a kˆv 2 sorral
         //ray.origin = origin;
         //ray.direction = direction;
 
@@ -30,11 +30,11 @@ public class LaserPointer : MonoBehaviour
     }
 }
 
-// l√©trehoz egy cylinder-t, leveleszi r√≥la a collidert, majd beh≈±zza a scriptet.
-// Objektumon bel√ºl l√©trehoz spehere-t √©s l√©trehoz j√≥p√°rat, azt√°n egyes√©vel beveszi az element-be manu√°lian 
-// VAGY: kijel√∂li mind a 10 al-objektumot, elt≈±nik a cucc (inspector) --> jobbra fent lockolja az inspectort (ahogy van), √©s √∫gy jel√∂li ki √©s h√∫zza be, √≠gy mindengyik helyre ker√ºl
-// azt√°n lockot feloldja --> ezeket fogja majd kirajzolgati
-// Windows - General - lehet √∫jabb inspectort is beh√∫zni, egyik lockolva, a m√°sik pl. nem
+// lÈtrehoz egy cylinder-t, leveleszi rÛla a collidert, majd beh˚zza a scriptet.
+// Objektumon bel¸l lÈtrehoz spehere-t Ès lÈtrehoz jÛp·rat, azt·n egyesÈvel beveszi az element-be manu·lian 
+// VAGY: kijelˆli mind a 10 al-objektumot, elt˚nik a cucc (inspector) --> jobbra fent lockolja az inspectort (ahogy van), Ès ˙gy jelˆli ki Ès h˙zza be, Ìgy mindengyik helyre ker¸l
+// azt·n lockot feloldja --> ezeket fogja majd kirajzolgati
+// Windows - General - lehet ˙jabb inspectort is beh˙zni, egyik lockolva, a m·sik pl. nem
 
 //------------------folytatjuk---------------
 
@@ -42,37 +42,37 @@ using UnityEngine;
 
 public class LaserPointer : MonoBehaviour
 {
-    [SerializeField] Transform[] points;            // lehetne t√∂mb is, vagy lista, √≠gy nem kell gameobect.transform.position, hanem el√©g lesz a transform.position
+    [SerializeField] Transform[] points;            // lehetne tˆmb is, vagy lista, Ìgy nem kell gameobect.transform.position, hanem elÈg lesz a transform.position
 
     void Update()
     {
         Vector3 origin = transform.position;
         Vector3 direction = transform.up;
 
-        Ray ray = new Ray(origin, direction);                           // √≠gy is lehet
+        Ray ray = new Ray(origin, direction);                           // Ìgy is lehet
 
-        //Ray ray = new Ray();                                          // vagy √≠gy √©s ut√≥lag t√∂lj√ºk fel a k√∂v 2 sorral
+        //Ray ray = new Ray();                                          // vagy Ìgy Ès utÛlag tˆlj¸k fel a kˆv 2 sorral
         //ray.origin = origin;
         //ray.direction = direction;
 
-        // Physics.Raycast(ray, out RaycastHit hit);                    // ezt a 2. k√∂rben vette kim, a fentit az els≈ëben
+        // Physics.Raycast(ray, out RaycastHit hit);                    // ezt a 2. kˆrben vette kim, a fentit az elsıben
 
-        bool isHit = Physics.Raycast(ray, out RaycastHit hit);          // sztem ez ker√ºlt be helyette (2 k√∂ri kidob√°s)
+        bool isHit = Physics.Raycast(ray, out RaycastHit hit);          // sztem ez ker¸lt be helyette (2 kˆri kidob·s)
 
-        if (isHit)                                                      // csak akkor ha van is tal√°lat
+        if (isHit)                                                      // csak akkor ha van is tal·lat
         {
             for (int i = 0; i < points.Length; i++)
             {
                 Transform point = points[i];
-                float t = i / (points.Length - 1f);                     // az egy ut√°n az√©rt tett f-et, hogy float maradjon ha int osztva floattal vagy ford√≠tva van
+                float t = i / (points.Length - 1f);                     // az egy ut·n azÈrt tett f-et, hogy float maradjon ha int osztva floattal vagy fordÌtva van
                 point.position = Vector3.Lerp(origin, hit.point, t);
             }
         }
     }
 }
 
-// ilyenkor nem t√∂rt√©nik semmi, mert UP --> ha elforgatom Unityben, √©s v√©gre eltal√°l valamit elkezd m≈±k√∂dni, de villog.
-// Az√©rt, mert a collidereket nem vett√ºk le a Sphere-kr≈ël m√©g, csak a cylinderrr≈ël (ami a parent)
+// ilyenkor nem tˆrtÈnik semmi, mert UP --> ha elforgatom Unityben, Ès vÈgre eltal·l valamit elkezd m˚kˆdni, de villog.
+// AzÈrt, mert a collidereket nem vett¸k le a Sphere-krıl mÈg, csak a cylinderrrıl (ami a parent)
 
 //------------------folytatjuk---------------
 
@@ -81,39 +81,39 @@ using UnityEngine;
 public class LaserPointer : MonoBehaviour
 {
 
-    [SerializeField] Transform[] points;            // lehetne t√∂mb is, vagy lista, √≠gy nem kell gameobect.transform.position, hanem el√©g lesz a transform.position
+    [SerializeField] Transform[] points;            // lehetne tˆmb is, vagy lista, Ìgy nem kell gameobect.transform.position, hanem elÈg lesz a transform.position
 
     void Update()
     {
         Vector3 origin = transform.position;
         Vector3 direction = transform.up;
 
-        Ray ray = new Ray(origin, direction);                           // √≠gy is lehet
+        Ray ray = new Ray(origin, direction);                           // Ìgy is lehet
 
-        //Ray ray = new Ray();                                          // vagy √≠gy √©s ut√≥lag t√∂lj√ºk fel a k√∂v 2 sorral
+        //Ray ray = new Ray();                                          // vagy Ìgy Ès utÛlag tˆlj¸k fel a kˆv 2 sorral
         //ray.origin = origin;
         //ray.direction = direction;
 
-        // Physics.Raycast(ray, out RaycastHit hit);                    // ezt a 2. k√∂rben vette kim, a fentit az els≈ëben
+        // Physics.Raycast(ray, out RaycastHit hit);                    // ezt a 2. kˆrben vette kim, a fentit az elsıben
 
-        bool isHit = Physics.Raycast(ray, out RaycastHit hit);          // sztem ez ker√ºlt be helyette (2 k√∂ri kidob√°s)
+        bool isHit = Physics.Raycast(ray, out RaycastHit hit);          // sztem ez ker¸lt be helyette (2 kˆri kidob·s)
 
-        if (isHit)                                                      // csak akkor ha van is tal√°lat
+        if (isHit)                                                      // csak akkor ha van is tal·lat
         {
             for (int i = 0; i < points.Length; i++)
             {
                 Transform point = points[i];
-                float t = i / (points.Length - 1f);                     // az egy ut√°n az√©rt tett f-et, hogy float maradjon ha int osztva floattal vagy ford√≠tva van
+                float t = i / (points.Length - 1f);                     // az egy ut·n azÈrt tett f-et, hogy float maradjon ha int osztva floattal vagy fordÌtva van
                 point.position = Vector3.Lerp(origin, hit.point, t);
             }
 
         }
 
-        //       else                                                   // √≠gy is lehet,e hogy kitessz√ºk a k√©pr≈ël
+        //       else                                                   // Ìgy is lehet,e hogy kitessz¸k a kÈprıl
         //        {
         //        }
 
-        foreach (Transform point in points)                            // de √≠gy csin√°ljuk meg
+        foreach (Transform point in points)                            // de Ìgy csin·ljuk meg
         {
             point.gameObject.SetActive(isHit);
         }
@@ -122,7 +122,7 @@ public class LaserPointer : MonoBehaviour
     }
 }
 
-// ------------------------TAN√ÅRI VERZI√ì (a fenti is j√≥!)-----------------------------
+// ------------------------TAN¡RI VERZI” (a fenti is jÛ!)-----------------------------
 
 using UnityEngine;
 
@@ -162,19 +162,19 @@ public class LaserPointer : MonoBehaviour
 
 //--------------------------------------------------------------------------------
 
-// ----------------- GRAVIT√ÅCI√ìS M√ìDOS√çT√ìK ------------------------
+// ----------------- GRAVIT¡CI”S M”DOSÕT”K ------------------------
 
-// l√©trehoz egy g√∂mb√∂t, rajta hagyja a collidert, √°tl√°tsz√≥: m,esh rendere kikapcs. Elt≈±nik. Ha √°tl√°tsz√≥ kell, akkor
-// l√©trehoz materialt (Transparent) n√©vvel, r√°h√∫zza a game objectre (g√∂mb)
-// standard material, renderern√©l transparent kiv√°laszt, alpha leh√∫zza √©s piros lesz pl.√°tl√°tsz√≥an piros
-// meg lehet n√©zni a h√°ziban megadott megold√°st, most m√°shogy oldjuk meg. (ott r√°keres minden rigidbody-ra √©s megn√©zi
-// a t√°vols√°got t≈ël√ºnk. Most triggerrel oldjuk meg.
-// ut√≥bbit b√°rmilyen colliderrel tudjuk haszn√°lni, az a l√©nyege, hogy legyen be√°ll√≠tva
-// l√©trehozza a scriptet √©s hozz√°rendeli a g√∂mbh√∂z
+// lÈtrehoz egy gˆmbˆt, rajta hagyja a collidert, ·tl·tszÛ: m,esh rendere kikapcs. Elt˚nik. Ha ·tl·tszÛ kell, akkor
+// lÈtrehoz materialt (Transparent) nÈvvel, r·h˙zza a game objectre (gˆmb)
+// standard material, renderernÈl transparent kiv·laszt, alpha leh˙zza Ès piros lesz pl.·tl·tszÛan piros
+// meg lehet nÈzni a h·ziban megadott megold·st, most m·shogy oldjuk meg. (ott r·keres minden rigidbody-ra Ès megnÈzi
+// a t·vols·got tıl¸nk. Most triggerrel oldjuk meg.
+// utÛbbit b·rmilyen colliderrel tudjuk haszn·lni, az a lÈnyege, hogy legyen be·llÌtva
+// lÈtrehozza a scriptet Ès hozz·rendeli a gˆmbhˆz
 
 //----------------------------------------------------------------
 
-using System.Collections.Generic;                               // ez kell, k√ºl√∂nben hiba van
+using System.Collections.Generic;                               // ez kell, k¸lˆnben hiba van
 using UnityEngine;
 
 public class GravityModifier : MonoBehaviour
@@ -189,7 +189,7 @@ public class GravityModifier : MonoBehaviour
             rigidbodies.Add(rb);
 
 
-        //if (other.GetComponent<Rigidbody>() != null)          // ez a cs√∫ny√°bbb k√≥dism√©tl√©ses
+        //if (other.GetComponent<Rigidbody>() != null)          // ez a cs˙ny·bbb kÛdismÈtlÈses
         //rigidbodies.Add(other.GetComponent<Rigidbody>());
     }
 
@@ -202,14 +202,14 @@ public class GravityModifier : MonoBehaviour
 
     void FixedUpdate()
     {
-        foreach (Rigidbody rb in rigidbodies)                        // nem lehet t√∂mb, mert az fix, ez√©rt lista
+        foreach (Rigidbody rb in rigidbodies)                        // nem lehet tˆmb, mert az fix, ezÈrt lista
         {
             rb.velocity += gravity * Time.fixedDeltaTime;
         }
 
     }
 }
----------------------ez a tan√°ri.kb ugyanez-----------------------------
+---------------------ez a tan·ri.kb ugyanez-----------------------------
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -242,47 +242,14 @@ class GravityModifier : MonoBehaviour
     }
 }
 
-// RIGIDBODY collision detection √°t√°ll√≠tva continuous-ra , Y-t m√≥dos√≠tja 20-ra pl
-// ilyenkor sim√°n l√©trehoz egy √∫jat, √©s X m√≥dos√≠tva 20 ra --> 100 eset√©n m√°r kil√∂vi
+// RIGIDBODY collision detection ·t·llÌtva continuous-ra , Y-t mÛdosÌtja 20-ra pl
+// ilyenkor sim·n lÈtrehoz egy ˙jat, Ès X mÛdosÌtva 20 ra --> 100 esetÈn m·r kilˆvi
 
-//-----------------------------Tov√°bb n√©zz√ºk--------------------------------------------------------------
+//-----------------------------Tov·bb nÈzz¸k--------------------------------------------------------------
 
-// rigidbodyknak van t√∂mege --> 1 es √©rt√©k. Lehet osztani ezzel az √©rt√©kkel, ha nagyobb a t√∂mege, ann√°l
-// lassaban gyorsul, vagy ann√°l nagyobb er≈ë kell neki a gyorsul√°shoz
-// n√©zz√ºk ezt
-
-using System.Collections.Generic;
-using UnityEngine;
-
-class GravityModifier : MonoBehaviour
-{
-    List<Rigidbody> rigidbodies = new List<Rigidbody>();
-    [SerializeField] Vector3 gravity;
-
-    void OnTriggerEnter(Collider other)
-    {
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        if (rb != null)
-            rigidbodies.Add(rb);
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        if (rb != null)
-            rigidbodies.Remove(rb);
-    }
-
-    void FixedUpdate()
-    {
-        foreach (Rigidbody rb in rigidbodies)
-        {
-            rb.velocity += gravity * Time.fixedDeltaTime / rb.mass;         // t√∂megggel osztok, ut√°na a t√∂meget m√≥dos√≠tom az objektumainkon.
-        }
-    }
-}
-
-//-------------------------RB ADDFORCE MAGYAR√ÅZAT A P√âLD√ÅN T√öL--------------------------------------------------
+// rigidbodyknak van tˆmege --> 1 es ÈrtÈk. Lehet osztani ezzel az ÈrtÈkkel, ha nagyobb a tˆmege, ann·l
+// lassaban gyorsul, vagy ann·l nagyobb erı kell neki a gyorsul·shoz
+// nÈzz¸k ezt
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -310,29 +277,62 @@ class GravityModifier : MonoBehaviour
     {
         foreach (Rigidbody rb in rigidbodies)
         {
-            rb.velocity += gravity * Time.fixedDeltaTime / rb.mass;     // t√∂megggel osztok, ut√°na a t√∂meget m√≥dos√≠tom az objektumainkon. (fix er≈ë. Ha nincs a /rb.mass akkor fix gyors√≠t√°s
-
-            rb.AddForce(gravity, ForceMode.Acceleration);               // T√ñMEG NEM SZ√ÅM√çT         // az√©rt nem szerti, mert elverszi a meg√©rt√©st, mi√©rt kell pl. fixed delta time // FOLYTONOS
-            rb.AddForce(gravity, ForceMode.Force);                      // T√∂MEG SZ√ÅM√çT                                                                                             // FOLYTONOS
-
-            rb.AddForce(-gravity, ForceMode.VelocityChange);            // T√ñMEG NEM SZ√ÅM√çT                                                                                         // EGYSZERI
-            rb.AddForce(-gravity, ForceMode.Impulse);                   // T√ñMEG SZ√ÅM√çT                                                                                             // EGYSZERI
+            rb.velocity += gravity * Time.fixedDeltaTime / rb.mass;         // tˆmegggel osztok, ut·na a tˆmeget mÛdosÌtom az objektumainkon.
         }
     }
 }
 
-// M√©rt√©kegys√©gek: 
+//-------------------------RB ADDFORCE MAGYAR¡ZAT A P…LD¡N T⁄L--------------------------------------------------
+
+using System.Collections.Generic;
+using UnityEngine;
+
+class GravityModifier : MonoBehaviour
+{
+    List<Rigidbody> rigidbodies = new List<Rigidbody>();
+    [SerializeField] Vector3 gravity;
+
+    void OnTriggerEnter(Collider other)
+    {
+        Rigidbody rb = other.GetComponent<Rigidbody>();
+        if (rb != null)
+            rigidbodies.Add(rb);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        Rigidbody rb = other.GetComponent<Rigidbody>();
+        if (rb != null)
+            rigidbodies.Remove(rb);
+    }
+
+    void FixedUpdate()
+    {
+        foreach (Rigidbody rb in rigidbodies)
+        {
+            rb.velocity += gravity * Time.fixedDeltaTime / rb.mass;     // tˆmegggel osztok, ut·na a tˆmeget mÛdosÌtom az objektumainkon. (fix erı. Ha nincs a /rb.mass akkor fix gyorsÌt·s
+
+            rb.AddForce(gravity, ForceMode.Acceleration);               // T÷MEG NEM SZ¡MÕT         // azÈrt nem szerti, mert elverszi a megÈrtÈst, miÈrt kell pl. fixed delta time // FOLYTONOS
+            rb.AddForce(gravity, ForceMode.Force);                      // TˆMEG SZ¡MÕT                                                                                             // FOLYTONOS
+
+            rb.AddForce(-gravity, ForceMode.VelocityChange);            // T÷MEG NEM SZ¡MÕT                                                                                         // EGYSZERI
+            rb.AddForce(-gravity, ForceMode.Impulse);                   // T÷MEG SZ¡MÕT                                                                                             // EGYSZERI
+        }
+    }
+}
+
+// MÈrtÈkegysÈgek: 
 // time.deltatime = mp
-// a hossz az egys√©g,mi tal√°ljuk ki
-// t√∂meg, szint√©n m√©rt√©kegys√©g, mi tal√°ljuk ki
-// minden m√°s kb ebb≈ël sz√°rmazik le 
+// a hossz az egysÈg,mi tal·ljuk ki
+// tˆmeg, szintÈn mÈrtÈkegysÈg, mi tal·ljuk ki
+// minden m·s kb ebbıl sz·rmazik le 
 
 
-//-------------------VISSZAL√âP√úNK AZ EREDETI K√ìDRA A FENTI CSAK TANUL√ÅS MIATT VOLT--------------------
+//-------------------VISSZAL…P‹NK AZ EREDETI K”DRA A FENTI CSAK TANUL¡S MIATT VOLT--------------------
 
 
-// m√©ret alapj√°n t√∂meg sz√°m√≠t√°s (pl ≈±rhaj√≥k)
-// √ºres objektum, r√°teszi a k√≥dot
+// mÈret alapj·n tˆmeg sz·mÌt·s (pl ˚rhajÛk)
+// ¸res objektum, r·teszi a kÛdot
 
 //------------------------------------
 
@@ -345,7 +345,7 @@ public class AutoSetup : MonoBehaviour
     [SerializeField] float density = 1.0f;
     void Start()
     {
-        // var a = 1;                                                       // √©rt√©kb≈ël tudja a var, hogy mi a, itt egy int
+        // var a = 1;                                                       // ÈrtÈkbıl tudja a var, hogy mi a, itt egy int
 
         // BoxCollider[] boxes = FindObjectOfType<BoxCollider>()            //
         var boxes = FindObjectOfType<BoxCollider>();                        //                                                    
@@ -365,7 +365,7 @@ public class AutoSetup : MonoBehaviour
     }
 }
 
-//----------------------FENTI NEM J√ì? TAN√ÅRI AL√ÅBB--------------------------
+//----------------------FENTI NEM J”? TAN¡RI AL¡BB--------------------------
 
 using UnityEngine;
 
@@ -396,11 +396,11 @@ public class AutoSetup : MonoBehaviour
     }
 }
 
-// fejleszt√©sn√©l minden objektumhoz script √©s onvalidate-ben futtatn√°, optim√°lisabb, nem egyben mindre...
+// fejlesztÈsnÈl minden objektumhoz script Ès onvalidate-ben futtatn·, optim·lisabb, nem egyben mindre...
 
 
 
-//----------------------PLATFORMER √öJRA-------------------------
+//----------------------PLATFORMER ⁄JRA-------------------------
 
 using UnityEngine;
 
@@ -423,7 +423,7 @@ class PlatformerPlayer : MonoBehaviour
     void Update()
     {
         // Jump
-        if (Input.GetKeyDown(KeyCode.Space))                // getkeydown miatt egyszeri mozg√°s miatt, folyamatos mozg√°st nem ide tessz√ºk
+        if (Input.GetKeyDown(KeyCode.Space))                // getkeydown miatt egyszeri mozg·s miatt, folyamatos mozg·st nem ide tessz¸k
         {
             if (grounded || airJumpBudget > 0)
             {
@@ -439,8 +439,8 @@ class PlatformerPlayer : MonoBehaviour
 
     void FixedUpdate()
     {
-        float x = Input.GetAxis("Horizontal");          // getaxis - tengelyt k√©rek le, ezek be√°ll√≠that√≥ak az Iput Managerben,
-                                                        // de alapb√≥l is van vagy 18 m√°sik, saj√°tot is l√©tre tudsz hozni
+        float x = Input.GetAxis("Horizontal");          // getaxis - tengelyt kÈrek le, ezek be·llÌthatÛak az Iput Managerben,
+                                                        // de alapbÛl is van vagy 18 m·sik, saj·tot is lÈtre tudsz hozni
 
         vector
         if (x != 0) { }                                 // X jobbra 1, balra -1, 0 nem mozgunk
@@ -461,7 +461,7 @@ class PlatformerPlayer : MonoBehaviour
 
 
 
-// ----------------- tan√°ri a j√≥ alul, de tal√°n m√©gsem, mert hib√°t tal√°lt, eggyel al√°bb a j√≥ --------------------------------
+// ----------------- tan·ri a jÛ alul, de tal·n mÈgsem, mert hib·t tal·lt, eggyel al·bb a jÛ --------------------------------
 
 using UnityEngine;
 
@@ -520,13 +520,13 @@ class PlatformerPlayer : MonoBehaviour
     }
 }
 
-// nem m≈±k√∂d√∂tt a mozg√°s, mert movement speed-re nem √°ll√≠tott semmit. 5-√∂n m√°r megy
-// lassan √°ll meg, meg indul el, ha a gravity-t feltolom 1000-re akkor pilanatnyi a mozg√°s, am√∫gy kb 1/3 mp a sabess√©ghez
+// nem m˚kˆdˆtt a mozg·s, mert movement speed-re nem ·llÌtott semmit. 5-ˆn m·r megy
+// lassan ·ll meg, meg indul el, ha a gravity-t feltolom 1000-re akkor pilanatnyi a mozg·s, am˙gy kb 1/3 mp a sabessÈghez
 // EDIT - PROJECT SETTINGS-ben
 
-// projects - 2d physics-ben -20 akkor dupla akkora lesz a gravit√°ci√≥, j√°t√©kon bel√ºl (sima physics = 3d, 2d nincs hat√°s
-// vagy magunk: fizik√°ban gravity scale = 0
-//-------------------TAN√ÅRI--------------------------------------
+// projects - 2d physics-ben -20 akkor dupla akkora lesz a gravit·ciÛ, j·tÈkon bel¸l (sima physics = 3d, 2d nincs hat·s
+// vagy magunk: fizik·ban gravity scale = 0
+//-------------------TAN¡RI--------------------------------------
 
 using UnityEngine;
 
@@ -572,8 +572,8 @@ class PlatformerPlayer : MonoBehaviour
         velocity.x = x * movementSpeed;
         rb.velocity = velocity;
 
-        rb.velocity += gravity * Time.fixedDeltaTime;                         // ez lett a saj√°t gravit√°ci√≥  - az√©rt += mert fent negat√≠v
-                                                                              // a gravit√°ci√≥ megadott ir√°nya
+        rb.velocity += gravity * Time.fixedDeltaTime;                         // ez lett a saj·t gravit·ciÛ  - azÈrt += mert fent negatÌv
+                                                                              // a gravit·ciÛ megadott ir·nya
 
     }
 
@@ -597,38 +597,38 @@ class PlatformerPlayer : MonoBehaviour
 //if (!runUpdate) runupdate kikapcs
 //
 //de nem biztos,. hogy kell, mert mindenmonobehavious scripetet tud tiltani.
-//Minden esem√©nymet√≥dust...
+//Minden esemÈnymetÛdust...
 
 //----------------------------------------3D GAME-----------------------------------------------------------------
-// Coin Duplik√°l√°sok
-// ha a Hierarchy-ban r√°keresek a coin-ra, sz≈±r r√°, √©s akkor √°t√°llitom
-// t:autorotator (t√≠pusra tudok r√°keresni)
-// ugyanez m≈±k√∂dik a projects f√ºl√∂n is, pl: t:scene √©s bedobja mind (nem el√©g csak elkezdeni, a teljes nevet kell magadni
-// legyen SABLON azaz PRefab. L√©trehozok egy prefab k√∂nyvt√°rat √©s beh√∫zom a coin-t a prefab k√∂nyvt√°rba, ahol az eredeti
+// Coin Duplik·l·sok
+// ha a Hierarchy-ban r·keresek a coin-ra, sz˚r r·, Ès akkor ·t·llitom
+// t:autorotator (tÌpusra tudok r·keresni)
+// ugyanez m˚kˆdik a projects f¸lˆn is, pl: t:scene Ès bedobja mind (nem elÈg csak elkezdeni, a teljes nevet kell magadni
+// legyen SABLON azaz PRefab. LÈtrehozok egy prefab kˆnyvt·rat Ès beh˙zom a coin-t a prefab kˆnyvt·rba, ahol az eredeti
 // coin adataival dolgozik
-// prefab coin a k√∂nyvt√°ban duplakatt, mindenf√©l√©t megadok neki, hol jelenjen meg, mekkora legyen, √©s k√©sz
-// ut√°na kih√∫zom a scene-be
-// ha a prefabon m√≥dos√≠tok, minden scene-ben m√≥dosul
-// kil√©p√©s a prefab-b√∫l a Hierarchy - Coin felett vissza gomb
-// k√≥db√≥l is betehetj√ºk ahov√° csak akarjuk
-// bel√©pni ha eg p√©ld√°nyon a scene-n bel√ºl l√©pek be a prefab melletti jobb nyilra. Amit m√≥dos√≠tok, ugyan√∫gy mninden m√≥dosul
-// OVERRIDES csak a prefab Inspectorban van, akkor ha valamit m√≥dos√≠tottunk egyetlen prefab p√©ld√°nyon k√ºl√∂n (√©s nem bel√ºl)
-// scene-n bel√ºli m√≥dos√≠t√°st vagy √∫gy hagyjuk - (sz√°nd√©kos), vagy revert, vissza√°ll√≠tjuk. Vagy apply amit √°tvezet√ºnk.
-// ha m√≥dos√≠tom az √©rt√©k√©t √©s jobbeg√©rgomb a sz√∂vegen, nem a m√≥dos√≠that√≥ dobozon, akkor lehet "apply to prefab"
-// lehet egy prefabon pl. child game objectet l√©trehozni, amit a Hierarchy jelez is majd, hogy "plusz", √©s ezt is r√° lehet
-// h√∫zni a prefab alapra.
-// VARI√ÅNS:
-// prefab Inspector-aban b√°rmely t√°rgyra, majd "SELECT", megtal√°lja a prefabot.
-// NEW - Prefab Variant, ha rajta √°llunk
-// Mesh renderer material --> √©n rosszul, mag√°t a matertilat akartam buher√°lni, de az nem j√≥
-// csin√°lt egy kalapot egynek, majd csin√°l bel≈ële prefabot, t√∂rli a scene-b≈ël, de prefabk√©nt ott van
-// √°ltal√°ban egy prefab nem szeencs√©s, ha nagyon elnyomott (scale)
-// csin√°l egy sima coin m√°solatot, azt √°tnevezi Coin Visual-ra, beteszi a sz√ºl≈ë al√°, csak a sz√ºl≈ën van script
-// t√∂rli az √©rt√©keket 1,1,1re √©s ezen dolgozik
+// prefab coin a kˆnyvt·ban duplakatt, mindenfÈlÈt megadok neki, hol jelenjen meg, mekkora legyen, Ès kÈsz
+// ut·na kih˙zom a scene-be
+// ha a prefabon mÛdosÌtok, minden scene-ben mÛdosul
+// kilÈpÈs a prefab-b˙l a Hierarchy - Coin felett vissza gomb
+// kÛdbÛl is betehetj¸k ahov· csak akarjuk
+// belÈpni ha eg pÈld·nyon a scene-n bel¸l lÈpek be a prefab melletti jobb nyilra. Amit mÛdosÌtok, ugyan˙gy mninden mÛdosul
+// OVERRIDES csak a prefab Inspectorban van, akkor ha valamit mÛdosÌtottunk egyetlen prefab pÈld·nyon k¸lˆn (Ès nem bel¸l)
+// scene-n bel¸li mÛdosÌt·st vagy ˙gy hagyjuk - (sz·ndÈkos), vagy revert, vissza·llÌtjuk. Vagy apply amit ·tvezet¸nk.
+// ha mÛdosÌtom az ÈrtÈkÈt Ès jobbegÈrgomb a szˆvegen, nem a mÛdosÌthatÛ dobozon, akkor lehet "apply to prefab"
+// lehet egy prefabon pl. child game objectet lÈtrehozni, amit a Hierarchy jelez is majd, hogy "plusz", Ès ezt is r· lehet
+// h˙zni a prefab alapra.
+// VARI¡NS:
+// prefab Inspector-aban b·rmely t·rgyra, majd "SELECT", megtal·lja a prefabot.
+// NEW - Prefab Variant, ha rajta ·llunk
+// Mesh renderer material --> Èn rosszul, mag·t a matertilat akartam buher·lni, de az nem jÛ
+// csin·lt egy kalapot egynek, majd csin·l belıle prefabot, tˆrli a scene-bıl, de prefabkÈnt ott van
+// ·ltal·ban egy prefab nem szeencsÈs, ha nagyon elnyomott (scale)
+// csin·l egy sima coin m·solatot, azt ·tnevezi Coin Visual-ra, beteszi a sz¸lı al·, csak a sz¸lın van script
+// tˆrli az ÈrtÈkeket 1,1,1re Ès ezen dolgozik
 // a kalap sajna nem lett sikeres.
-// Coin - m√°sol√°s - child. Eredeti coin-on kikapcsolunk mindent, vissza√°ll√≠tjuk 1,1,1-re, majd a child-en mindent be√°ll√≠tunk
-// arra, ami a volt 1, 0.2, 1, √©s vissza is kapcsolunk mindent, √≠gy aa visual adja amit kell, √©sss a l√©trehozand√≥
-// objektumok m√°r norm√°lisan j√∂nnek l√©tre, nem √∂sszenyomva
+// Coin - m·sol·s - child. Eredeti coin-on kikapcsolunk mindent, vissza·llÌtjuk 1,1,1-re, majd a child-en mindent be·llÌtunk
+// arra, ami a volt 1, 0.2, 1, Ès vissza is kapcsolunk mindent, Ìgy aa visual adja amit kell, Èsss a lÈtrehozandÛ
+// objektumok m·r norm·lisan jˆnnek lÈtre, nem ˆsszenyomva
 
 
 //--------------------
@@ -646,7 +646,7 @@ public class Shooter : MonoBehaviour
         if (Input.GetKeyDown(shootkey))
         {
             // shoot
-            GameObject newBullet = Instantiate(projectilePrototype);           // m√°solatot csin√°lunk
+            GameObject newBullet = Instantiate(projectilePrototype);           // m·solatot csin·lunk
         }
     }
 }
@@ -677,7 +677,7 @@ public class Shooter : MonoBehaviour
 
 // bullet - add rigidbody.
 
-//-------------------- tan√°ri -----------------------
+//-------------------- tan·ri -----------------------
 
 using UnityEngine;
 
@@ -700,17 +700,17 @@ public class Shooter : MonoBehaviour
         }
     }
 }
-// nem mindegy, hogy a sz√ºl≈ë z√∂ldje (up) milyen ir√°nyba mutat √©s egyezik-e a goly√≥ UP-j√°val
-// ha nem megy, az is lehet, hogy belegabalyodik rigidbody-ba, ha nem vetted le a pisztolyr√≥l
-// vagy a k√©zr≈ël, vagy m√°sr√≥l
+// nem mindegy, hogy a sz¸lı zˆldje (up) milyen ir·nyba mutat Ès egyezik-e a golyÛ UP-j·val
+// ha nem megy, az is lehet, hogy belegabalyodik rigidbody-ba, ha nem vetted le a pisztolyrÛl
+// vagy a kÈzrıl, vagy m·srÛl
 
-// minden komponensen, amit menetk√∂zben hozunk l√©tre, annak a startja l√©trehoz√°skor meg is fut,
-// nem az elej√©n mindennek. akkor
-// ha nem kell a l√∂ved√©k, prefabot, majd a gun-nak a prefab-ot k√∂t√∂m be.
-// prefabon kikapcsolom a gravity-t (0) akkor megy a v√©gtelens√©gbe, de nem sz≈±nik meg
+// minden komponensen, amit menetkˆzben hozunk lÈtre, annak a startja lÈtrehoz·skor meg is fut,
+// nem az elejÈn mindennek. akkor
+// ha nem kell a lˆvedÈk, prefabot, majd a gun-nak a prefab-ot kˆtˆm be.
+// prefabon kikapcsolom a gravity-t (0) akkor megy a vÈgtelensÈgbe, de nem sz˚nik meg
 
 
-//-------------HOGYAN SEMMIS√çTS√úK MEG------------------------------
+//-------------HOGYAN SEMMISÕTS‹K MEG------------------------------
 
 using UnityEngine;
 
@@ -731,14 +731,14 @@ public class AutoDestroy : MonoBehaviour
         if (currentDistance > distanceFromCreation)
         {
             Destroy(gameObject);                                    // ha csak a komponenst akarjuk, akor this. ...,
-                                                                    // √≠gy meg a teljes game objectet semmis√≠tj√ºk meg 
+                                                                    // Ìgy meg a teljes game objectet semmisÌtj¸k meg 
         }
     }
 }
 
-// prefab-ra duplakatt, megnyitva, a script-et oda is r√° tudjuk tenni. Ezt csin√°ltuk most, √©s tov√°bbra is ezt hazsn√°ljuk
+// prefab-ra duplakatt, megnyitva, a script-et oda is r· tudjuk tenni. Ezt csin·ltuk most, Ès tov·bbra is ezt hazsn·ljuk
 
-//--------------AKKOR IS SEMMIS√çTS√úK MEG HA ID≈ê M√öLT EL----------------------------------------
+//--------------AKKOR IS SEMMISÕTS‹K MEG HA ID’ M⁄LT EL----------------------------------------
 
 using UnityEngine;
 
@@ -753,9 +753,9 @@ class AutoDestroy : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
-        //        startTime = Time.time;                                //e helyett m√°s
+        //        startTime = Time.time;                                //e helyett m·s
 
-        //        Destroy(gameObject destroyTime);						// ezt m√©g k√©s≈ëbb kivette
+        //        Destroy(gameObject destroyTime);						// ezt mÈg kÈsıbb kivette
 
     }
 
@@ -767,7 +767,7 @@ class AutoDestroy : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //        float age = Time.time - startTime;			// ezek helyett m√°s
+        //        float age = Time.time - startTime;			// ezek helyett m·s
         //        if (age > destroyTime)
         //        {
         //            Destroy(gameObject);
@@ -781,7 +781,7 @@ class AutoDestroy : MonoBehaviour
 }
 
 
-// ------------------- a tan√°ri ami j√≥ --------------------
+// ------------------- a tan·ri ami jÛ --------------------
 
 using UnityEngine;
 
@@ -826,7 +826,7 @@ class AutoDestroy : MonoBehaviour
     }
 }
 
-//------------------rohanunk mint √°llat ez sem lesz j√≥----------------------
+//------------------rohanunk mint ·llat ez sem lesz jÛ----------------------
 
 using UnityEngine;
 
@@ -854,7 +854,7 @@ class AutoDestroy : MonoBehaviour
         {
             DestroySelf();
 
-            Invoke("DestroySelf", destroyTime)          // ezt nem szereti, mert ha √°tnevezi, akkor itt a string-ben megmarad
+            Invoke("DestroySelf", destroyTime)          // ezt nem szereti, mert ha ·tnevezi, akkor itt a string-ben megmarad
         }
 
 
@@ -873,7 +873,7 @@ class AutoDestroy : MonoBehaviour
     }
 }
 
-//-----------------TAN√ÅRI, V√âGLEGES------------------------
+//-----------------TAN¡RI, V…GLEGES------------------------
 
 using UnityEngine;
 
@@ -890,7 +890,7 @@ class AutoDestroy : MonoBehaviour
         startPos = transform.position;
         // startTime = Time.time;
 
-        // Destroy(gameObject, destroyTime);   // K√©sleltetve
+        // Destroy(gameObject, destroyTime);   // KÈsleltetve
 
         Invoke(nameof(DestroySelf), destroyTime);
     }
@@ -919,7 +919,7 @@ void DestroySelf()
     }
 }
 
-//----------------------------9. √ìRA V√âGE-----------------------------------
+//----------------------------9. ”RA V…GE-----------------------------------
 
 
 */
